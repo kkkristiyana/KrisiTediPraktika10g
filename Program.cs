@@ -28,7 +28,24 @@ namespace KrisiTediPraktika10g
 
         public static void LoadRooms()
         {
+            Console.WriteLine("Въведете номер на стаята: ");
+            int roomNum = int.Parse(Console.ReadLine());
+            Console.WriteLine("Въведете тип на стаята: ");
+            string type = Console.ReadLine();
+            Console.WriteLine("Въведете капацитет на стаята: ");
+            int capacity = int.Parse(Console.ReadLine());
+            Console.WriteLine("Въведете цена за нощ на стаята: ");
+            double pricePn = double.Parse(Console.ReadLine());
 
+            var newRoom = new Room
+            {
+                RoomNumber = roomNum,
+                Type = type,
+                Capacity = capacity,
+                PricePerNight = pricePn,
+                Occupied = false,
+                GuestName = ""
+            };
         }
         public static void Rezervation(int num, string type, int capacity, double price, bool occ, string nameG)
         {
@@ -41,17 +58,31 @@ namespace KrisiTediPraktika10g
                 throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
             }
         }
-       /* public static void OsvobojdavaneNaStaq(int num)
+        public static void ReleaseRoom()
         {
-            Room occupied = new Hotel(occupied);
-            if (occupied == true)
+            Console.WriteLine("Въведете номера на стаята за освобождаване: ");
+            int roomNum = int.Parse(Console.ReadLine());
+            var room = new Room { RoomNumber = roomNum };
+            if (room.Occupied==true)
             {
+                room.Occupied = false;
+                room.GuestName = "";
+                Console.WriteLine("Стаята е освободена.");
 
+            }
+            else
+            {
+                Console.WriteLine("Регистрация на тази стая не е намерена.");
             }
         }
         public int NalichnostNaStai(List<int>nalichni)
         {
-
-        }*/
+            //napravih dvata metoda deto trqbvashe da pravq
+            //sushto i tozi deto klasniq mi kaza v chas i mi trqbvaha promenlivite zatova gi slojih
+            //davai tedi vqrvam v teb za drugite dve i tam oshte nqkoi neshta imat da se slagat sus tekstoviq fail
+            //imashe i edno deto while v maina ahmed beshe slojil, taka che vij i nego
+            
+        }
+       
     }
 }

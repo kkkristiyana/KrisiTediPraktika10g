@@ -12,6 +12,8 @@ namespace KrisiTediPraktika10g
         private string type;
         private int capacity;
         private bool occupied;
+        private double pricePerNight;
+        private string guestName;
 
         public int RoomNumber
         {
@@ -19,7 +21,7 @@ namespace KrisiTediPraktika10g
             {
                 return roomNumber;
             }
-            private set
+            set
             {
                 if(value<=0)
                 {
@@ -37,9 +39,9 @@ namespace KrisiTediPraktika10g
             {
                 return type;
             }
-            private set
+            set
             {
-                if (type=="")
+                if (type==" ")
                 {
                     throw new ArgumentException("Полето с типа на стаята не може да е празно!");
                 }
@@ -55,7 +57,7 @@ namespace KrisiTediPraktika10g
             {
                 return capacity;
             }
-            private set
+            set
             {
                 if (value<=0)
                 {
@@ -85,6 +87,30 @@ namespace KrisiTediPraktika10g
 
                 }
                 occupied = value;
+            }
+        }
+
+        public double PricePerNight 
+        { 
+            get
+            {
+                return pricePerNight;
+            }
+            set 
+            { 
+                pricePerNight = value; 
+            }
+        }
+
+        public string GuestName 
+        {
+            get
+            {
+                return guestName;
+            }
+            set 
+            { 
+                guestName = value; 
             }
         }
     }
