@@ -10,6 +10,7 @@ namespace KrisiTediPraktika10g
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("ZDR");
         }
     }
 }
