@@ -7,15 +7,25 @@ using System.Threading.Tasks;
 namespace KrisiTediPraktika10g
 {
     class Program
-        private static List<Room> room = new List<Room>();
     {
+        private static List<Room> room = new List<Room>();
         static void Main(string[] args)
         {
-           
+            Console.InputEncoding = Encoding.Unicode;
+            Console.OutputEncoding = Encoding.Unicode;
+
             PrintMenu();
-            
-        
+
+            while (true) 
+            {
+            }
         }
+
+        private static void PrintMenu()
+        {
+            throw new NotImplementedException();
+        }
+
         public static void LoadRooms()
         {
 
@@ -31,7 +41,7 @@ namespace KrisiTediPraktika10g
                 throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
             }
         }
-        public static void OsvobojdavaneNaStaq(int num)
+       /* public static void OsvobojdavaneNaStaq(int num)
         {
             Room occupied = new Hotel(occupied);
             if (occupied == true)
@@ -42,6 +52,6 @@ namespace KrisiTediPraktika10g
         public int NalichnostNaStai(List<int>nalichni)
         {
 
-        }
+        }*/
     }
 }
