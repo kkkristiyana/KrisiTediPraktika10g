@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 namespace KrisiTediPraktika10g
 {
     class Program
+        private static List<Room> room = new List<Room>();
     {
         static void Main(string[] args)
         {
-            List<Room> nomeraNaStai = new List<Room> {};
+           
+            PrintMenu();
             
-            
+        
         }
         public static void LoadRooms()
         {
