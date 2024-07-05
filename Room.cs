@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KrisiTediPraktika10g
 {
-    public class Hotel
+    public class Room
     {
         private int roomNumber;
         private string type;
@@ -80,6 +80,10 @@ namespace KrisiTediPraktika10g
             }
             set
             {
+                if (occupied!=true)
+                {
+
+                }
                 occupied = value;
             }
         }

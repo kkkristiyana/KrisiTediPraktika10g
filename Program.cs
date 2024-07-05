@@ -10,7 +10,13 @@ namespace KrisiTediPraktika10g
     {
         static void Main(string[] args)
         {
+            List<Room> nomeraNaStai = new List<Room> {};
             
+            
+        }
+        public static void LoadRooms()
+        {
+
         }
         public static void Rezervation(int num, string type, int capacity, double price, bool occ, string nameG)
         {
@@ -23,13 +29,17 @@ namespace KrisiTediPraktika10g
                 throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
             }
         }
-        public static void OsvobojdavaneNaStaq(int num,)
+        public static void OsvobojdavaneNaStaq(int num)
         {
-            Hotel occupied = new Hotel(occupied);
+            Room occupied = new Hotel(occupied);
             if (occupied == true)
             {
 
             }
+        }
+        public int NalichnostNaStai(List<int>nalichni)
+        {
+
         }
     }
 }
