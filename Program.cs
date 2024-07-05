@@ -8,6 +8,7 @@ namespace KrisiTediPraktika10g
 {
     class Program
     {
+        private const string filePath = "../../../HotelInfo.txt";
         private static List<Room> room = new List<Room>();
         private static string menuActionChoice;
         static void Main(string[] args)
@@ -16,6 +17,7 @@ namespace KrisiTediPraktika10g
             Console.OutputEncoding = Encoding.Unicode;
 
             PrintMenu();
+            RoomOptions();
 
             while (true) 
             {
@@ -41,9 +43,25 @@ namespace KrisiTediPraktika10g
                         showActionTitle("Справка за заетите стаи и техните гости");
                         ReferenceForRoom();
                         break;
+                    case "x":
+                        Exit();
+                        break;
+                    default:
+                        // todo: implement default case
 
+                        break;
                 }
             }
+        }
+
+        private static void RoomOptions()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void Exit()
+        {
+            Environment.Exit(0);
         }
 
         private static void ReferenceForRoom()
