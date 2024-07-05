@@ -8,9 +8,16 @@ namespace KrisiTediPraktika10g
 {
     class DeistviqSusMetodiZaHotela
     {
-        public bool Rezervation(int num,string type, int)
+        public static void Rezervation(int num,string type, int capacity,double price,bool occ,string nameG)
         {
-
+            if (occ==false)
+            {
+                occ = true;
+            }
+            else
+            {
+                throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
+            }
         }
     }
 }

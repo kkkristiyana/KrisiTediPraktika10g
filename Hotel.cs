@@ -60,6 +60,10 @@ namespace KrisiTediPraktika10g
                 {
                     throw new ArgumentException("Капацитетът на стаюта трябва да е по-голям от 0!");
                 }
+                else if (value>4)
+                {
+                    throw new ArgumentException("Максималният капацитет е четири човека в стая!");
+                }
                 else
                 {
                     capacity = value;
