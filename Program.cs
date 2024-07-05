@@ -12,5 +12,24 @@ namespace KrisiTediPraktika10g
         {
             
         }
+        public static void Rezervation(int num, string type, int capacity, double price, bool occ, string nameG)
+        {
+            if (occ == false)
+            {
+                occ = true;
+            }
+            else
+            {
+                throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
+            }
+        }
+        public static void OsvobojdavaneNaStaq(int num,)
+        {
+            Hotel occupied = new Hotel(occupied);
+            if (occupied == true)
+            {
+
+            }
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace KrisiTediPraktika10g
         private int roomNumber;
         private string type;
         private int capacity;
+        private bool occupied;
 
         public int RoomNumber
         {
@@ -68,6 +69,18 @@ namespace KrisiTediPraktika10g
                 {
                     capacity = value;
                 }
+            }
+        }
+
+        public bool Occupied
+        {
+            get
+            {
+                return occupied;
+            }
+            set
+            {
+                occupied = value;
             }
         }
     }
