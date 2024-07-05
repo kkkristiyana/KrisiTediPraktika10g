@@ -8,5 +8,9 @@ namespace KrisiTediPraktika10g
 {
     class DeistviqSusMetodiZaHotela
     {
+        public bool Rezervation(int num,string type, int)
+        {
+
+        }
     }
 }
