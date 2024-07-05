@@ -9,6 +9,7 @@ namespace KrisiTediPraktika10g
     class Program
     {
         private static List<Room> room = new List<Room>();
+        private static string menuActionChoice;
         static void Main(string[] args)
         {
             Console.InputEncoding = Encoding.Unicode;
@@ -18,7 +19,56 @@ namespace KrisiTediPraktika10g
 
             while (true) 
             {
+                menuActionChoice = Console.ReadLine();
+                switch (menuActionChoice)
+                {
+                    case "1":
+                        showActionTitle("Резервирай стая");
+                        ReserveRoom();
+                        break;
+
+                    case "2":
+                        showActionTitle("Освободи стая");
+                        FreeRoom();
+                        break;
+
+                    case "3":
+                        showActionTitle("Проверка за наличност и цена на стая");
+                        CheckRoomsPriceandAvailability();
+                        break;
+
+                    case "4":
+                        showActionTitle("Справка за заетите стаи и техните гости");
+                        ReferenceForRoom();
+                        break;
+
+                }
             }
+        }
+
+        private static void ReferenceForRoom()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void CheckRoomsPriceandAvailability()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void FreeRoom()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void showActionTitle(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void ReserveRoom()
+        {
+            throw new NotImplementedException();
         }
 
         private static void PrintMenu()
