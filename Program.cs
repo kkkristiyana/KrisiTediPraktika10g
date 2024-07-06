@@ -14,6 +14,7 @@ namespace KrisiTediPraktika10g
         private static string menuActionChoice;
         static void Main(string[] args)
         {
+            
             Console.InputEncoding = Encoding.Unicode;
             Console.OutputEncoding = Encoding.Unicode;
 
@@ -21,9 +22,7 @@ namespace KrisiTediPraktika10g
             var hotelManager = new HotelManager(filePath);
 
             ShowMenu();
-            RoomOptions();
-
-            while (true) 
+            while (true)
             {
                 menuActionChoice = Console.ReadLine();
                 switch (menuActionChoice)
@@ -90,23 +89,43 @@ namespace KrisiTediPraktika10g
 
         private static void ReserveRoom()
         {
-            throw new NotImplementedException();
+            Console.Write("Номер на стаята: ");
+            string roomNumber = Console.ReadLine();
+
+            Console.Write("Тип на стаята: ");
+            string type = Console.ReadLine();
+
+            Console.Write("Капацитет на стаята: ");
+            string capacity = Console.ReadLine();
+
+            Console.Write("Цена на стаята за една нощувка: ");
+            string pricePerNight = Console.ReadLine();
+
+            Console.Write("Свободна ли е стаята: ");
+            string occupied = Console.ReadLine();
+
+            Console.Write("Име на госта: ");
+            string guestName = Console.ReadLine();
         }
 
         private static void ShowMenu()
         {
            while (true)
-            {
+           {
                 Console.WriteLine("Hotel Management System");
-                Console.WriteLine("1. List all rooms");
-                Console.WriteLine("2. Check in guest");
-                Console.WriteLine("3. Check out guest");
+                Console.WriteLine("1. Списък на всички стаи");
+                Console.WriteLine("2. Настаняване на гостите");
+                Console.WriteLine("3. Провери гостите");
                 Console.WriteLine("4. Exit");
-                Console.Write("Choose an option: ");
+                Console.Write("Избери опция: ");
                 var choice = Console.ReadLine();
-            }
+           }
+
+            
         }
 
+
+      
         public static void LoadRooms()
         {
             Console.WriteLine("Въведете номер на стаята: ");
@@ -118,15 +137,7 @@ namespace KrisiTediPraktika10g
             Console.WriteLine("Въведете цена за нощ на стаята: ");
             double pricePn = double.Parse(Console.ReadLine());
 
-            var newRoom = new Room
-            {
-                RoomNumber = roomNum,
-                Type = type,
-                Capacity = capacity,
-                PricePerNight = pricePn,
-                Occupied = false,
-                GuestName = ""
-            };
+           
         }
         public static void Rezervation(int num, string type, int capacity, double price, bool occ, string nameG)
         {
@@ -139,31 +150,18 @@ namespace KrisiTediPraktika10g
                 throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
             }
         }
-        public static void ReleaseRoom()
-        {
-            Console.WriteLine("Въведете номера на стаята за освобождаване: ");
-            int roomNum = int.Parse(Console.ReadLine());
-            var room = new Room { RoomNumber = roomNum };
-            if (room.Occupied==true)
-            {
-                room.Occupied = false;
-                room.GuestName = "";
-                Console.WriteLine("Стаята е освободена.");
-
-            }
-            else
-            {
-                Console.WriteLine("Регистрация на тази стая не е намерена.");
-            }
-        }
-       /* public int NalichnostNaStai(List<int>nalichni)
-        {
-            //napravih dvata metoda deto trqbvashe da pravq
-            //sushto i tozi deto klasniq mi kaza v chas i mi trqbvaha promenlivite zatova gi slojih
-            //davai tedi vqrvam v teb za drugite dve i tam oshte nqkoi neshta imat da se slagat sus tekstoviq fail
-            //imashe i edno deto while v maina ahmed beshe slojil, taka che vij i nego
-            
-        }*/
        
+       
+        /* public int NalichnostNaStai(List<int>nalichni)
+         {
+             //napravih dvata metoda deto trqbvashe da pravq
+             //sushto i tozi deto klasniq mi kaza v chas i mi trqbvaha promenlivite zatova gi slojih
+             //davai tedi vqrvam v teb za drugite dve i tam oshte nqkoi neshta imat da se slagat sus tekstoviq fail
+             //imashe i edno deto while v maina ahmed beshe slojil, taka che vij i nego
+
+         }*/
+
+
+
     }
 }

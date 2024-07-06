@@ -14,6 +14,22 @@ namespace KrisiTediPraktika10g
         private bool occupied;
         private double pricePerNight;
         private string guestName;
+        private string v1;
+        private string v2;
+        private int v3;
+        private double v4;
+        private bool v5;
+        private string v6;
+
+        public Room(string v1, string v2, int v3, double v4, bool v5, string v6)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.v3 = v3;
+            this.v4 = v4;
+            this.v5 = v5;
+            this.v6 = v6;
+        }
 
         public int RoomNumber
         {
