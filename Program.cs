@@ -89,28 +89,32 @@ namespace KrisiTediPraktika10g
 
         public static void FreeRoom()
         {
+            Console.WriteLine("Номер на стаята:");
             int roomNum = int.Parse(Console.ReadLine());
             bool Found = false;
+            string path = "../../RoomInfo.txt";
             var lines = File.ReadAllLines(path).ToList();
+
+
             
             for (int i = 0; i < lines.Count; i++)
             {
                 var parts = lines[i].Split(',');
                 if (parts.Length == 2 && int.TryParse(parts[0], out int number) && number == roomNum)
                 {
-                    lines[i] = $"{roomNum},free";
+                    lines[i] = $"{roomNum},Свободна";
                     Found = true;
                     break;
                 }
             }
             if (!Found)
             {
-                Console.WriteLine("Room not found.");
+                Console.WriteLine("Стаята не е намерена.");
                 return;
             }
             File.WriteAllLines(path, lines);
 
-            Console.WriteLine($"Room {roomNum} is now marked as free.");
+            Console.WriteLine($"Стаята {roomNum} сега е маркирана като запазена.");
         }
 
         private static void showActionTitle(string v)
