@@ -31,6 +31,16 @@ namespace KrisiTediPraktika10g
             this.v6 = v6;
         }
 
+        public Room(int roomNumber, string type, int capacity, int pricePerNight, bool occupied, string guestName)
+        {
+            this.roomNumber = roomNumber;
+            this.type = type;
+            this.capacity = capacity;
+            this.pricePerNight = pricePerNight;
+            this.occupied = occupied;
+            this.guestName = guestName;
+        }
+
         public int RoomNumber
         {
             get

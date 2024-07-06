@@ -87,25 +87,40 @@ namespace KrisiTediPraktika10g
             throw new NotImplementedException();
         }
 
-        private static void ReserveRoom()
+        public static void ReserveRoom()
         {
             Console.Write("Номер на стаята: ");
-            string roomNumber = Console.ReadLine();
+           int roomNumber = int.Parse(Console.ReadLine());
 
             Console.Write("Тип на стаята: ");
             string type = Console.ReadLine();
 
             Console.Write("Капацитет на стаята: ");
-            string capacity = Console.ReadLine();
+            int capacity = int.Parse(Console.ReadLine());
 
             Console.Write("Цена на стаята за една нощувка: ");
-            string pricePerNight = Console.ReadLine();
+            int pricePerNight = int.Parse(Console.ReadLine());
 
             Console.Write("Свободна ли е стаята: ");
-            string occupied = Console.ReadLine();
+            bool occupied = bool.Parse(Console.ReadLine());
 
             Console.Write("Име на госта: ");
             string guestName = Console.ReadLine();
+
+            try
+            {
+                Room newRoom = new Room(roomNumber, type, capacity,
+                    pricePerNight, occupied, guestName);
+
+                rooms.Add(newRoom);
+                //belejkazanapomqne!!
+                ShowResultMessage($"Стая с номер {roomNumber} е добавена успешно.");
+            }
+            catch (Exception)
+            {
+
+                ShowResultMessage($"Невалидни данни за полет");
+            }
         }
 
         private static void ShowMenu()
@@ -126,7 +141,7 @@ namespace KrisiTediPraktika10g
 
 
       
-        public static void LoadRooms()
+       /* public static void LoadRooms()
         {
             Console.WriteLine("Въведете номер на стаята: ");
             int roomNum = int.Parse(Console.ReadLine());
@@ -138,7 +153,8 @@ namespace KrisiTediPraktika10g
             double pricePn = double.Parse(Console.ReadLine());
 
            
-        }
+        }*/
+
         public static void Rezervation(int num, string type, int capacity, double price, bool occ, string nameG)
         {
             if (occ == false)
@@ -150,8 +166,8 @@ namespace KrisiTediPraktika10g
                 throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
             }
         }
-       
-       
+
+
         /* public int NalichnostNaStai(List<int>nalichni)
          {
              //napravih dvata metoda deto trqbvashe da pravq
@@ -160,6 +176,19 @@ namespace KrisiTediPraktika10g
              //imashe i edno deto while v maina ahmed beshe slojil, taka che vij i nego
 
          }*/
+        private static void ShowResultMessage(string message)
+        {
+            AddLine();
+            Console.WriteLine("\t" + message);
+        }
+        private static void AddLine(int count = 1)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                Console.WriteLine(Environment.NewLine);
+            }
+        }
+
 
 
 
