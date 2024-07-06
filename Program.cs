@@ -12,10 +12,11 @@ namespace KrisiTediPraktika10g
  
         private static List<Room> rooms = new List<Room>();
         private static string menuActionChoice;
-        
+        private const string path = "../../RoomInfo.txt";
+
         static void Main(string[] args)
         {
-            string path = "../../RoomInfo.txt";
+            //string path = "../../RoomInfo.txt";
             using (StreamReader reader = new StreamReader(path))
             {
                 string content = reader.ReadToEnd();
@@ -35,8 +36,8 @@ namespace KrisiTediPraktika10g
             ShowMenu();
             while (true)
             {
-                menuActionChoice = Console.ReadLine();
-                switch (menuActionChoice)
+                var choice = Console.ReadLine();
+                switch (choice)
                 {
                     case "1":
                         showActionTitle("Резервирай стая");
@@ -86,9 +87,30 @@ namespace KrisiTediPraktika10g
             throw new NotImplementedException();
         }
 
-        private static void FreeRoom()
+        public static void FreeRoom()
         {
-            throw new NotImplementedException();
+            int roomNum = int.Parse(Console.ReadLine());
+            bool Found = false;
+            var lines = File.ReadAllLines(path).ToList();
+            
+            for (int i = 0; i < lines.Count; i++)
+            {
+                var parts = lines[i].Split(',');
+                if (parts.Length == 2 && int.TryParse(parts[0], out int number) && number == roomNum)
+                {
+                    lines[i] = $"{roomNum},free";
+                    Found = true;
+                    break;
+                }
+            }
+            if (!Found)
+            {
+                Console.WriteLine("Room not found.");
+                return;
+            }
+            File.WriteAllLines(path, lines);
+
+            Console.WriteLine($"Room {roomNum} is now marked as free.");
         }
 
         private static void showActionTitle(string v)
@@ -114,11 +136,13 @@ namespace KrisiTediPraktika10g
             Console.Write("Свободна ли е стаята: ");
             bool occupied = bool.Parse(Console.ReadLine());
             bool occ = true;
-
+            Console.Write("Име на госта: ");
+            string guestName = Console.ReadLine();
             if (occ == false)
             {
 
                 Console.WriteLine("Свободна е!");
+                 
             }
             else
             {
@@ -126,9 +150,8 @@ namespace KrisiTediPraktika10g
 
             }
 
-            Console.Write("Име на госта: ");
-            string guestName = Console.ReadLine();
-            try
+           
+           /* try
             {
                 Room newRoom = new Room(roomNumber, type, capacity,
                     pricePerNight, occupied, guestName);
@@ -141,7 +164,7 @@ namespace KrisiTediPraktika10g
             {
 
                 ShowResultMessage($"");
-            }
+            }*/
 
         }
 
@@ -176,33 +199,35 @@ namespace KrisiTediPraktika10g
   
         }
 
+        
 
-      
-       /* public static void LoadRooms()
-        {
-            Console.WriteLine("Въведете номер на стаята: ");
-            int roomNum = int.Parse(Console.ReadLine());
-            Console.WriteLine("Въведете тип на стаята: ");
-            string type = Console.ReadLine();
-            Console.WriteLine("Въведете капацитет на стаята: ");
-            int capacity = int.Parse(Console.ReadLine());
-            Console.WriteLine("Въведете цена за нощ на стаята: ");
-            double pricePn = double.Parse(Console.ReadLine());
 
-           
-        }*/
 
-      /*  public static void Rezervation(int num, string type, int capacity, double price, bool occ, string nameG)
-        {
-            if (occ == false)
-            {
-                occ = true;
-            }
-            else
-            {
-                throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
-            }
-        }*/
+        /* public static void LoadRooms()
+         {
+             Console.WriteLine("Въведете номер на стаята: ");
+             int roomNum = int.Parse(Console.ReadLine());
+             Console.WriteLine("Въведете тип на стаята: ");
+             string type = Console.ReadLine();
+             Console.WriteLine("Въведете капацитет на стаята: ");
+             int capacity = int.Parse(Console.ReadLine());
+             Console.WriteLine("Въведете цена за нощ на стаята: ");
+             double pricePn = double.Parse(Console.ReadLine());
+
+
+         }*/
+
+        /*  public static void Rezervation(int num, string type, int capacity, double price, bool occ, string nameG)
+          {
+              if (occ == false)
+              {
+                  occ = true;
+              }
+              else
+              {
+                  throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
+              }
+          }*/
 
 
         /* public int NalichnostNaStai(List<int>nalichni)
