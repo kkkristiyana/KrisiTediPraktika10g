@@ -12,15 +12,26 @@ namespace KrisiTediPraktika10g
  
         private static List<Room> rooms = new List<Room>();
         private static string menuActionChoice;
+        
         static void Main(string[] args)
         {
-            
+            string path = "../../RoomInfo.txt";
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string content = reader.ReadToEnd();
+                Console.WriteLine(content);
+            }
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+            }
+
             Console.InputEncoding = Encoding.Unicode;
             Console.OutputEncoding = Encoding.Unicode;
-
-            string filePath = "rooms.txt"; 
-            var hotelManager = new HotelManager(filePath);
-
             ShowMenu();
             while (true)
             {
@@ -50,8 +61,7 @@ namespace KrisiTediPraktika10g
                         Exit();
                         break;
                     default:
-                        // todo: implement default case
-
+                        Console.WriteLine("Invalid option, please try again.");
                         break;
                 }
             }
@@ -59,7 +69,7 @@ namespace KrisiTediPraktika10g
 
         private static void RoomOptions()
         {
-            throw new NotImplementedException();
+             
         }
 
         private static void Exit()
@@ -193,4 +203,5 @@ namespace KrisiTediPraktika10g
 
 
     }
+
 }
