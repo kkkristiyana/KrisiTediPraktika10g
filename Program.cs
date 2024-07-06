@@ -61,16 +61,16 @@ namespace KrisiTediPraktika10g
                         Exit();
                         break;
                     default:
-                        Console.WriteLine("Invalid option, please try again.");
+                        Console.WriteLine("Невалидна опция, опитайте отново.");
                         break;
                 }
             }
         }
 
-        private static void RoomOptions()
+        /*private static void RoomOptions()
         {
              
-        }
+        }*/
 
         private static void Exit()
         {
@@ -137,16 +137,24 @@ namespace KrisiTediPraktika10g
         {
            while (true)
            {
-                Console.WriteLine("Hotel Management System");
-                Console.WriteLine("1. Списък на всички стаи");
-                Console.WriteLine("2. Настаняване на гостите");
-                Console.WriteLine("3. Провери гостите");
-                Console.WriteLine("4. Exit");
-                Console.Write("Избери опция: ");
-                var choice = Console.ReadLine();
-           }
+                Console.Clear();
 
-            
+                AddLine();
+                Console.WriteLine("М Е Н Ю");
+                AddLine();
+                Console.WriteLine("Моля изберете желаното действие:");
+                AddLine();
+                Console.WriteLine("[1]: Резервирай стая");
+                Console.WriteLine("[2]: Освободи стая");
+                Console.WriteLine("[3]: Проверка за наличност и цена на стая");
+                Console.WriteLine("[4]: Справка за заетите стаи и техните гости");
+                Console.WriteLine("[x]: Изход от програмата");
+                AddLine();
+                Console.Write("Вашият избор: ");
+                var option = Console.ReadLine();
+                ReserveRoom();
+            }
+  
         }
 
 
