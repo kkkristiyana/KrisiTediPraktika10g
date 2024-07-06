@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,15 +9,18 @@ namespace KrisiTediPraktika10g
 {
     class Program
     {
-        private const string filePath = "../../../HotelInfo.txt";
-        private static List<Room> room = new List<Room>();
+ 
+        private static List<Room> rooms = new List<Room>();
         private static string menuActionChoice;
         static void Main(string[] args)
         {
             Console.InputEncoding = Encoding.Unicode;
             Console.OutputEncoding = Encoding.Unicode;
 
-            PrintMenu();
+            string filePath = "rooms.txt"; 
+            var hotelManager = new HotelManager(filePath);
+
+            ShowMenu();
             RoomOptions();
 
             while (true) 
@@ -89,9 +93,18 @@ namespace KrisiTediPraktika10g
             throw new NotImplementedException();
         }
 
-        private static void PrintMenu()
+        private static void ShowMenu()
         {
-            throw new NotImplementedException();
+           while (true)
+            {
+                Console.WriteLine("Hotel Management System");
+                Console.WriteLine("1. List all rooms");
+                Console.WriteLine("2. Check in guest");
+                Console.WriteLine("3. Check out guest");
+                Console.WriteLine("4. Exit");
+                Console.Write("Choose an option: ");
+                var choice = Console.ReadLine();
+            }
         }
 
         public static void LoadRooms()
@@ -143,14 +156,14 @@ namespace KrisiTediPraktika10g
                 Console.WriteLine("Регистрация на тази стая не е намерена.");
             }
         }
-        public int NalichnostNaStai(List<int>nalichni)
+       /* public int NalichnostNaStai(List<int>nalichni)
         {
             //napravih dvata metoda deto trqbvashe da pravq
             //sushto i tozi deto klasniq mi kaza v chas i mi trqbvaha promenlivite zatova gi slojih
             //davai tedi vqrvam v teb za drugite dve i tam oshte nqkoi neshta imat da se slagat sus tekstoviq fail
             //imashe i edno deto while v maina ahmed beshe slojil, taka che vij i nego
             
-        }
+        }*/
        
     }
 }
