@@ -44,7 +44,6 @@ namespace KrisiTediPraktika10g
                         break;
 
                     case "2":
-                        showActionTitle("Освободи стая");
                         FreeRoom();
                         break;
 
@@ -99,6 +98,7 @@ namespace KrisiTediPraktika10g
 
         public static void ReserveRoom()
         {
+            
             Console.Write("Номер на стаята: ");
            int roomNumber = int.Parse(Console.ReadLine());
 
@@ -113,10 +113,21 @@ namespace KrisiTediPraktika10g
 
             Console.Write("Свободна ли е стаята: ");
             bool occupied = bool.Parse(Console.ReadLine());
+            bool occ = true;
+
+            if (occ == false)
+            {
+
+                Console.WriteLine("Свободна е!");
+            }
+            else
+            {
+                Console.WriteLine("Тази стая е вече резервирана, изберете друга!");
+
+            }
 
             Console.Write("Име на госта: ");
             string guestName = Console.ReadLine();
-
             try
             {
                 Room newRoom = new Room(roomNumber, type, capacity,
@@ -129,8 +140,9 @@ namespace KrisiTediPraktika10g
             catch (Exception)
             {
 
-                ShowResultMessage($"Невалидни данни за полет");
+                ShowResultMessage($"");
             }
+
         }
 
         private static void ShowMenu()
@@ -144,16 +156,23 @@ namespace KrisiTediPraktika10g
                 AddLine();
                 Console.WriteLine("Моля изберете желаното действие:");
                 AddLine();
-                Console.WriteLine("[1]: Резервирай стая");
-                Console.WriteLine("[2]: Освободи стая");
-                Console.WriteLine("[3]: Проверка за наличност и цена на стая");
-                Console.WriteLine("[4]: Справка за заетите стаи и техните гости");
-                Console.WriteLine("[x]: Изход от програмата");
+                Console.WriteLine("1: Резервирай стая");
+                Console.WriteLine("2: Освободи стая");
+                Console.WriteLine("3: Проверка за наличност и цена на стая");
+                Console.WriteLine("4: Справка за заетите стаи и техните гости");
+                Console.WriteLine("x: Изход от програмата");
                 AddLine();
                 Console.Write("Вашият избор: ");
                 var option = Console.ReadLine();
-                ReserveRoom();
-            }
+                if (option == "1")
+                {
+                    ReserveRoom();
+                }
+                else if (option == "2")
+                {
+                    FreeRoom();
+                }
+           }
   
         }
 
@@ -173,7 +192,7 @@ namespace KrisiTediPraktika10g
            
         }*/
 
-        public static void Rezervation(int num, string type, int capacity, double price, bool occ, string nameG)
+      /*  public static void Rezervation(int num, string type, int capacity, double price, bool occ, string nameG)
         {
             if (occ == false)
             {
@@ -183,7 +202,7 @@ namespace KrisiTediPraktika10g
             {
                 throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
             }
-        }
+        }*/
 
 
         /* public int NalichnostNaStai(List<int>nalichni)
