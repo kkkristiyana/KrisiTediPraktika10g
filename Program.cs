@@ -84,7 +84,13 @@ namespace KrisiTediPraktika10g
 
         private static void CheckRoomsPriceandAvailability()
         {
-            throw new NotImplementedException();
+            var lines = new List<string>();
+            
+            foreach (var room in rooms)
+            {
+                lines.Add(item: $"{room.RoomNumber}, {room.Type}, {room.Capacity}, {room.PricePerNight}, {room.Occupied}, {room.GuestName}");
+            }
+            File.WriteAllLines(path, lines);
         }
 
         public static void FreeRoom()
@@ -199,7 +205,11 @@ namespace KrisiTediPraktika10g
                 {
                     FreeRoom();
                 }
-           }
+                else if (option == "3")
+                {
+                    CheckRoomsPriceandAvailability();
+                }
+            }
   
         }
 
@@ -256,7 +266,7 @@ namespace KrisiTediPraktika10g
         }
 
 
-
+        
 
     }
 
