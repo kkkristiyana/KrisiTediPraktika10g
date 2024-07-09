@@ -67,7 +67,7 @@ namespace KrisiTediPraktika10g
             }
             set
             {
-                if (type==" ")
+                if (type=="")
                 {
                     throw new ArgumentException("Полето с типа на стаята не може да е празно!");
                 }

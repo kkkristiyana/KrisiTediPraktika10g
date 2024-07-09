@@ -216,14 +216,44 @@ namespace KrisiTediPraktika10g
          {
              Console.WriteLine("Въведете номер на стаята: ");
              int roomNum = int.Parse(Console.ReadLine());
+            while (roomNum<=0)
+            {
+                Console.WriteLine("Номерът на стаята трябва да е положителен и по-голям от 0!");
+                Console.WriteLine("Въведете номер на стаята: ");
+                roomNum =int.Parse(Console.ReadLine());
+            }
              Console.WriteLine("Въведете тип на стаята: ");
              string type = Console.ReadLine();
+            while (type==null)
+            {
+                Console.WriteLine("Полето с типа на стаята не може да е празно!");
+                Console.WriteLine("Въведете тип на стаята: ");
+                type = Console.ReadLine();
+            }
              Console.WriteLine("Въведете капацитет на стаята: ");
              int capacity = int.Parse(Console.ReadLine());
+            while (capacity!=1&&capacity!=2&&capacity!=3&&capacity!=4)
+            {
+                Console.WriteLine("Максималният капацитет е четири човека в стая!");
+                Console.WriteLine("Въведете капацитет на стаята: ");
+                capacity=int.Parse(Console.ReadLine());
+            }
              Console.WriteLine("Въведете цена за нощ на стаята: ");
              double pricePn = double.Parse(Console.ReadLine());
+            while (pricePn==0)
+            {
+                Console.WriteLine("Не предлагаме безплатен престой. :)");
+                Console.WriteLine("Въведете цена за нощ на стаята: ");
+                pricePn=double.Parse(Console.ReadLine());
+            }
             Console.WriteLine("Въведете име на госта:");
             string guestName = Console.ReadLine();
+            while (guestName=="")
+            {
+                Console.WriteLine("Моля напишете името си!");
+                Console.WriteLine("Въведете име на госта:");
+                guestName = Console.ReadLine();
+            }
             Console.WriteLine("Маркирайте стаята като свободна(false), за да я запазите!");
             bool occ = bool.Parse(Console.ReadLine());
             if (occ == false)
@@ -232,7 +262,9 @@ namespace KrisiTediPraktika10g
             }
             else
             {
-                throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
+                Console.WriteLine("Тази стая е вече резервирана, изберете друга!");
+                Console.WriteLine("Въведете свободна стая:");
+                occ = bool.Parse(Console.ReadLine());
             }
             Room roomR = new Room(roomNum, type, capacity, pricePn, occ, guestName);
             rooms.Add(roomR);
