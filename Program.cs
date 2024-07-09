@@ -269,16 +269,44 @@ namespace KrisiTediPraktika10g
             Room roomR = new Room(roomNum, type, capacity, pricePn, occ, guestName);
             rooms.Add(roomR);
          }
-                 
+        public static void ReleaseRoom() //ako se naloji, tova e izgubeniqt mi ReleaseRoom kod.
+        {
+            Console.WriteLine("Съжаляваме за неудобството, но ще се наложи да въведете пълните данни от резервирането на стаята. Благодарим за разбирането!");
+            Console.WriteLine("Въведете номера на стаята за освобождаване: ");
+            int roomNumber = int.Parse(Console.ReadLine());
+            Console.WriteLine("Въведете регистрационно име: ");
+            string guestName = Console.ReadLine(); 
+            Console.WriteLine("Въведете типа на стаята:");
+            string type = Console.ReadLine();
+            Console.WriteLine("Въведете капацитета и:");
+            int capacity = int.Parse(Console.ReadLine());
+            Console.WriteLine("Въведете заетостта и(задължително true):");
+            bool occ = bool.Parse(Console.ReadLine());
+            Console.WriteLine("Въведете цената за нощувка:");
+            double pricePn = double.Parse(Console.ReadLine());
+            Room room = new Room(roomNumber, type, capacity, pricePn, occ, guestName);
+            if (room.Occupied == true)
+            {
+                room.Occupied = false;
+                room.GuestName = "";
+                Console.WriteLine("Стаята е освободена.");
 
-         /*public int NalichnostNaStai(List<int>nalichni)
-         {
-             //napravih dvata metoda deto trqbvashe da pravq
-             //sushto i tozi deto klasniq mi kaza v chas i mi trqbvaha promenlivite zatova gi slojih
-             //davai tedi vqrvam v teb za drugite dve i tam oshte nqkoi neshta imat da se slagat sus tekstoviq fail
-             //imashe i edno deto while v maina gospodin ahmed beshe slojil, taka che vij i nego
+            }
+            else
+            {
+                Console.WriteLine("Регистрация на тази стая не е намерена.");
+            }
+            rooms.Remove(room);
+        }
 
-         }*/
+        /*public int NalichnostNaStai(List<int>nalichni)
+        {
+            //napravih dvata metoda deto trqbvashe da pravq
+            //sushto i tozi deto klasniq mi kaza v chas i mi trqbvaha promenlivite zatova gi slojih
+            //davai tedi vqrvam v teb za drugite dve i tam oshte nqkoi neshta imat da se slagat sus tekstoviq fail
+            //imashe i edno deto while v maina gospodin ahmed beshe slojil, taka che vij i nego
+
+        }*/
         private static void ShowResultMessage(string message)
         {
             AddLine();
