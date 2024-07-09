@@ -108,10 +108,6 @@ namespace KrisiTediPraktika10g
             }
             set
             {
-                if (occupied!=true)
-                {
-
-                }
                 occupied = value;
             }
         }
@@ -123,7 +119,11 @@ namespace KrisiTediPraktika10g
                 return pricePerNight;
             }
             set 
-            { 
+            {
+                if (pricePerNight==0)
+                {
+                    Console.WriteLine("Не предлагаме безплатен престой. :)");
+                }
                 pricePerNight = value; 
             }
         }
