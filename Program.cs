@@ -41,7 +41,7 @@ namespace KrisiTediPraktika10g
                 {
                     case "1":
                         showActionTitle("Резервирай стая");
-                        ReserveRoom();
+                        RezerviraneNaStaq();
                         break;
 
                     case "2":
@@ -66,12 +66,7 @@ namespace KrisiTediPraktika10g
                 }
             }
         }
-
-        /*private static void RoomOptions()
-        {
-             
-        }*/
-
+               
         private static void Exit()
         {
             Environment.Exit(0);
@@ -199,7 +194,7 @@ namespace KrisiTediPraktika10g
                 var option = Console.ReadLine();
                 if (option == "1")
                 {
-                    ReserveRoom();
+                    RezerviraneNaStaq();
                 }
                 else if (option == "2")
                 {
@@ -217,7 +212,7 @@ namespace KrisiTediPraktika10g
 
 
 
-        /* public static void LoadRooms()
+         public static void RezerviraneNaStaq()
          {
              Console.WriteLine("Въведете номер на стаята: ");
              int roomNum = int.Parse(Console.ReadLine());
@@ -227,29 +222,25 @@ namespace KrisiTediPraktika10g
              int capacity = int.Parse(Console.ReadLine());
              Console.WriteLine("Въведете цена за нощ на стаята: ");
              double pricePn = double.Parse(Console.ReadLine());
+            Console.WriteLine("Маркирайте стаята като свободна(false), за да я запазите!");
+            bool occ = bool.Parse(Console.ReadLine());
+            if (occ == false)
+            {
+                occ = true;
+            }
+            else
+            {
+                throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
+            }
+        }
+                 
 
-
-         }*/
-
-        /*  public static void Rezervation(int num, string type, int capacity, double price, bool occ, string nameG)
-          {
-              if (occ == false)
-              {
-                  occ = true;
-              }
-              else
-              {
-                  throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
-              }
-          }*/
-
-
-        /* public int NalichnostNaStai(List<int>nalichni)
+         /*public int NalichnostNaStai(List<int>nalichni)
          {
              //napravih dvata metoda deto trqbvashe da pravq
              //sushto i tozi deto klasniq mi kaza v chas i mi trqbvaha promenlivite zatova gi slojih
              //davai tedi vqrvam v teb za drugite dve i tam oshte nqkoi neshta imat da se slagat sus tekstoviq fail
-             //imashe i edno deto while v maina ahmed beshe slojil, taka che vij i nego
+             //imashe i edno deto while v maina gospodin ahmed beshe slojil, taka che vij i nego
 
          }*/
         private static void ShowResultMessage(string message)
