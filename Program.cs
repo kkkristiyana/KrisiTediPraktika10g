@@ -74,7 +74,20 @@ namespace KrisiTediPraktika10g
 
         private static void ReferenceForRoom()
         {
-            throw new NotImplementedException();
+            foreach (var room in rooms)
+            {
+                if (!room.Occupied)
+                {
+                    Console.WriteLine($"Room {room.RoomNumber} ({room.Type}), Price per night: {room.PricePerNight}");
+                }
+            }
+            foreach (var room in rooms)
+            {
+                if (room.Occupied)
+                {
+                    Console.WriteLine($"Room {room.RoomNumber} ({room.Type}), Guest: {room.GuestName}");
+                }
+            }
         }
 
         private static void CheckRoomsPriceandAvailability()
@@ -118,9 +131,12 @@ namespace KrisiTediPraktika10g
             Console.WriteLine($"Стаята {roomNum} сега е маркирана като запазена.");
         }
 
-        private static void showActionTitle(string v)
+        private static void showActionTitle(string title)
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            AddLine();
+            Console.WriteLine("\t" + title);
+            AddLine();
         }
 
         public static void ReserveRoom()
@@ -204,6 +220,14 @@ namespace KrisiTediPraktika10g
                 {
                     CheckRoomsPriceandAvailability();
                 }
+                else if (option == "4")
+                {
+                    ReferenceForRoom();
+                }
+                else if (option == "5")
+                {
+                    Exit();
+                }
             }
   
         }
@@ -269,7 +293,9 @@ namespace KrisiTediPraktika10g
             Room roomR = new Room(roomNum, type, capacity, pricePn, occ, guestName);
             rooms.Add(roomR);
          }
-        public static void ReleaseRoom() //ako se naloji, tova e izgubeniqt mi ReleaseRoom kod.
+        public static void ReleaseRoom() 
+            //ako se naloji, tova e izgubeniqt mi ReleaseRoom kod.
+            //okay girl
         {
             Console.WriteLine("Съжаляваме за неудобството, но ще се наложи да въведете пълните данни от резервирането на стаята. Благодарим за разбирането!");
             Console.WriteLine("Въведете номера на стаята за освобождаване: ");
