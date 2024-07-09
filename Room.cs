@@ -21,7 +21,7 @@ namespace KrisiTediPraktika10g
         private bool v5;
         private string v6;
 
-        public Room(string v1, string v2, int v3, double v4, bool v5, string v6)
+        /*public Room(string v1, string v2, int v3, double v4, bool v5, string v6)
         {
             this.v1 = v1;
             this.v2 = v2;
@@ -29,9 +29,9 @@ namespace KrisiTediPraktika10g
             this.v4 = v4;
             this.v5 = v5;
             this.v6 = v6;
-        }
+        }*/
 
-        public Room(int roomNumber, string type, int capacity, int pricePerNight, bool occupied, string guestName)
+        public Room(int roomNumber, string type, int capacity, double pricePerNight, bool occupied, string guestName)
         {
             this.roomNumber = roomNumber;
             this.type = type;

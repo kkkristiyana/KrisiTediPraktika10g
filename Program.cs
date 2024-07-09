@@ -222,6 +222,8 @@ namespace KrisiTediPraktika10g
              int capacity = int.Parse(Console.ReadLine());
              Console.WriteLine("Въведете цена за нощ на стаята: ");
              double pricePn = double.Parse(Console.ReadLine());
+            Console.WriteLine("Въведете име на госта:");
+            string guestName = Console.ReadLine();
             Console.WriteLine("Маркирайте стаята като свободна(false), за да я запазите!");
             bool occ = bool.Parse(Console.ReadLine());
             if (occ == false)
@@ -232,7 +234,9 @@ namespace KrisiTediPraktika10g
             {
                 throw new ArgumentException("Тази стая е вече резервирана, изберете друга!");
             }
-        }
+            Room roomR = new Room(roomNum, type, capacity, pricePn, occ, guestName);
+            rooms.Add(roomR);
+         }
                  
 
          /*public int NalichnostNaStai(List<int>nalichni)
@@ -256,7 +260,17 @@ namespace KrisiTediPraktika10g
             }
         }
 
-
+        private static void SaveRoom()
+        {
+            StreamWriter writer = new StreamWriter(path, false, Encoding.Unicode);
+            using (writer)
+            {
+                foreach (Room room in rooms)
+                {
+                    writer.WriteLine(room);
+                }
+            }
+        }
         
 
     }
