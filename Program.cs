@@ -74,8 +74,21 @@ namespace KrisiTediPraktika10g
 
         private static void ReferenceForRoom()
         {
-            Console.WriteLine("Въведете име и номер на стаята:");
-            int 
+            string path = "../../RoomInfo.txt";
+            var lines = new List<string>();
+            Console.WriteLine("Въведете номер на стаята и име:");
+            int RoomNumber = int.Parse(Console.ReadLine());
+            
+            while (RoomNumber<=0)
+            {
+                Console.WriteLine("Номера на стаята трябва да бъде по голям от 0!");
+                Console.WriteLine("Въведете номера на стаята:");
+                RoomNumber = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Въведете име:");
+            string guestname = Console.ReadLine();
+
             foreach (var room in rooms)
             {
                 if (!room.Occupied)
@@ -90,12 +103,23 @@ namespace KrisiTediPraktika10g
                     Console.WriteLine($"Room {room.RoomNumber} ({room.Type}), Guest: {room.GuestName}");
                 }
             }
+            File.WriteAllLines(path, lines);
         }
 
         private static void CheckRoomsPriceandAvailability()
         {
-            var lines = new List<string>();
             
+            var lines = new List<string>();
+            Console.WriteLine("Въведи номер и тип на стаята:");
+            int RoomNumber = int.Parse(Console.ReadLine());
+            string type = Console.ReadLine();
+            while (RoomNumber <= 0)
+            {
+                Console.WriteLine("Номера на стаята трябва да бъде по голям от 0!");
+                Console.WriteLine("Въведете номера на стаята:");
+            }
+            Console.WriteLine("Въведи тип на стаята:");
+            type = Console.ReadLine();
             foreach (var room in rooms)
             {
                 lines.Add(item: $"{room.RoomNumber}, {room.Type}, {room.Capacity}, {room.PricePerNight}, {room.Occupied}, {room.GuestName}");

@@ -1,12 +1,12 @@
 ﻿namespace KrisiTediPraktika10g
 {
-    internal class HotelManager
+    public class HotelManager
     {
-        private string filePath;
+        private string path;
 
-        public HotelManager(string filePath)
+        public HotelManager(string path)
         {
-            this.filePath = filePath;
+            this.path = path;
         }
     }
 }
