@@ -74,6 +74,8 @@ namespace KrisiTediPraktika10g
 
         private static void ReferenceForRoom()
         {
+            Console.WriteLine("Въведете име и номер на стаята:");
+            int 
             foreach (var room in rooms)
             {
                 if (!room.Occupied)
