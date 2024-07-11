@@ -1,3 +1,4 @@
 101,single,1,50,true,Ivan
 102,double,2,80,false,-
 103,triple,3,110,false,-
+104,double,2,80,true,Gosho
